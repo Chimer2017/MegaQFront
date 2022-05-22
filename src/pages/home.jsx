@@ -8,8 +8,8 @@ export function HomePage() {
   //This isnt suppoused to work atm
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const res = await ask(question)
-    // setAnswer(res)
+    const { data } = await ask(question);
+    setAnswer(data.answer);
   };
   return (
     <>
@@ -49,10 +49,9 @@ export function HomePage() {
               onChange={(e) => setQuestion(e.target.value)}
             />
             <button
-              type="submit"
               value="Ask Away"
               className="form-button button is-primary is-inverted is-outlined"
-              onSubmit={handleSubmit}
+              onClick={handleSubmit}
             >
               Ask
             </button>

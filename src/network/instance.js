@@ -2,10 +2,6 @@ import axios from "axios";
 
 export const api = axios.create({
   baseURL: process.env.REACT_APP_URL,
-  timeout: 2000,
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-  },
 });
 
 api.interceptors.request.use(
@@ -14,7 +10,7 @@ api.interceptors.request.use(
     if (token) {
       config.headers["Authorization"] = "Bearer " + token;
     } else {
-      if (!["/login", "/registro"].includes(window.location.pathname)) {
+      if (!["/login", "/signup"].includes(window.location.pathname)) {
         window.location.href = "/login";
       }
     }
@@ -30,18 +26,13 @@ api.interceptors.response.use(
     return response;
   },
   async (error) => {
+    console.log({ error });
     if (401 === error.response.status) {
       if (window.location.pathname === "/login") {
-        //todo: If token fails, then is removed?
-        // window.localStorage.removeItem("token");
         return error.response;
       }
       window.location.href = "/login";
     }
-    // else if (403 == error.response.status) {
-    //   window.location.href = "/";
-    // }
-    //Error will be always returned
     return { data: error.response.data, status: error.response.status };
   }
 );

@@ -12,8 +12,8 @@ export const login = async (loginDTO) => {
   return { data: res.data, status: res.status };
 };
 
-export const ask = async (body) => {
-  const res = await api.get("/ask", body);
+export const ask = async (question) => {
+  const res = await api.get("/ask", { params: { qq: question } });
 
   return { data: res.data, status: res.status };
 };

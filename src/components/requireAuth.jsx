@@ -4,11 +4,10 @@ import { Navigate } from "react-router-dom";
 export function RequireAuth({ children }) {
   //   let auth = useAuth();
   const token = window.localStorage.getItem("token");
-  console.log(token);
   //   let location = useLocation();
 
   if (!token) {
-    // Redirect them to the /login page if there is no used autenticated,
+    // Redirect them to the /login page if there is no user autenticated,
     // At the moment there is only home page. But if the app grows
     // useLocation from react router can be used to save the current location they were
     // trying to go to when they were redirected. This allows us to send them
