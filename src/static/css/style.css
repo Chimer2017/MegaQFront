@@ -1,0 +1,46 @@
+.login-input {
+  width: 130px;
+}
+
+.form-button {
+  width: 80px;
+  height: 35px;
+}
+
+.signup-box {
+  margin: auto;
+  width: 325px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.settings-box {
+  margin: auto;
+  width: 325px;
+}
+
+.signup-area {
+  padding: 30px;
+}
+
+.settings-area {
+  padding: 30px;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+li {
+  font-weight: bold;
+}
+
+#answer {
+  font-size: 44px;
+  border: 3px black dotted;
+}
